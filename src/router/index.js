@@ -77,6 +77,49 @@ export const constantRoutes = [
     ]
   },
 
+  // menu->项目管理
+  {
+    path: '/project',
+    component: Layout,
+    redirect: '/project/project-management',
+    children: [
+      {
+        path: 'project-management',
+        component: () => import('@/views/project-management/index'),
+        name: 'projectManagement',
+        meta: { title: '项目管理', icon: 'list', noCache: true }
+      },
+      {
+        path: 'project-detail',
+        component: () => import('@/views/project-detail-list/index'),
+        name: 'projectDetail',
+        hidden: true,
+        meta: { title: '项目详情', noCache: true }
+      },
+      {
+        path: 'detail-data',
+        component: () => import('@/views/detail-data/index'),
+        name: 'detailData',
+        hidden: true,
+        meta: { title: '具体数据', noCache: true }
+      }
+    ]
+  },
+  // menu->数据分析
+  {
+    path: '/data',
+    component: Layout,
+    redirect: '/data/data-analysis',
+    children: [
+      {
+        path: 'data-analysis',
+        component: () => import('@/views/data-analysis/index'),
+        name: 'dataAnalysis',
+        meta: { title: '数据分析', icon: 'component', noCache: true }
+      }
+    ]
+  },
+
   {
     path: '/form',
     component: Layout,
